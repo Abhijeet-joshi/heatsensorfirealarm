@@ -1,0 +1,25 @@
+float THERMISTORPIN=A0;
+int buzzerpin=10;
+
+void setup(void) {
+  pinMode(buzzerpin, OUTPUT);
+  Serial.begin(9600);
+}
+void loop() {
+  float reading;
+
+  reading=analogRead(THERMISTORPIN);
+
+  Serial.print("Analog reaing ");
+  Serial.println(reading);
+  if(reading<450)
+  {
+    digitalWrite(buzzerpin,HIGH);
+  }
+ else
+{
+  digitalWrite(buzzerpin,LOW);
+}
+
+delay(500);
+}
